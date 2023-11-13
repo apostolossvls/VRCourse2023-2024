@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NPCWave : MonoBehaviour
 {
+    public Animator npcAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,13 @@ public class NPCWave : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-
+            Wave();
         }
+    }
+
+    void Wave()
+    {
+        //todo
+        npcAnimator.SetTrigger("Wave");
     }
 }
