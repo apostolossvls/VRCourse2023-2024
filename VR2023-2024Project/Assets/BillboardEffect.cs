@@ -18,4 +18,5 @@ public class BillboardEffect : MonoBehaviour
         transform.forward = _camera.transform.forward;
         //transform.rotation = _camera.transform.rotation;
     }
+
 }

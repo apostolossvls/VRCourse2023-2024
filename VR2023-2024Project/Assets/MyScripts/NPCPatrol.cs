@@ -55,5 +55,6 @@ public class NPCPatrol : MonoBehaviour
         animator.SetBool("Walking", true);
 
         agent.SetDestination(targets[targetIndex].position);
+
     }
 }
