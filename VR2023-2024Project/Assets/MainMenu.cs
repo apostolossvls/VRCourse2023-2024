@@ -20,8 +20,6 @@ public class MainMenu : MonoBehaviour
         {
             Destroy(gameObject);
             return;
-            onSelect.Invoke();
-            onSelect +=
         }
 
         //DontDestroyOnLoad(gameObject);
