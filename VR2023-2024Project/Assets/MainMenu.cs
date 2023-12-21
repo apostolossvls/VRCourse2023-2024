@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
 {
     public static MainMenu Instance; //singleton
     public Slider progressBar;
+	public GameObject progressContinueText;
     public UnityEvent onSelect;
 
     // Start is called before the first frame update
@@ -45,7 +46,10 @@ public class MainMenu : MonoBehaviour
         // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
         // a sceneBuildIndex of 1 as shown in Build Settings.
 
-        yield return new WaitForSeconds(5);
+	progressContinueText.SetActive(true);
+	progressBar.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(0.1f);
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("SampleScene");
         asyncLoad.allowSceneActivation = false;
@@ -54,12 +58,14 @@ public class MainMenu : MonoBehaviour
         while (!asyncLoad.isDone)
         {
             progressBar.value = asyncLoad.progress;
-            yield return null;
-
+            
             if (Input.GetKeyDown(KeyCode.E))
             {
+		progressContinueText.SetActive(false);
+		progressBar.gameObject.SetActive(false);
                 asyncLoad.allowSceneActivation = true;
             }
+		yield return null;
         }
     }
 
